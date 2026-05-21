@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>★☆★ iPhone 5s 完全攻略ページ 激★推し ★☆★</title>
+  <style>
+    /* ===== 基本スタイル ===== */
+    * { box-sizing: border-box; }
+
+    body {
+      background-color: #000011;
+      color: #ffffff;
+      font-family: "Comic Sans MS", "UD デジタル 教科書体", cursive;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="28" font-size="28">⭐</text></svg>'), auto;
+    }
+
+    /* ===== 星降るキャンバス ===== */
+    #starfield {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* コンテンツは星の上に */
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== 虹色テキスト ===== */
+    .rainbow {
+      animation: rainbow-shift 0.8s linear infinite;
+      font-weight: bold;
+    }
+    @keyframes rainbow-shift {
+      0%   { color: #ff0000; }
+      14%  { color: #ff7700; }
+      28%  { color: #ffff00; }
+      42%  { color: #00ff00; }
+      57%  { color: #00ffff; }
+      71%  { color: #0000ff; }
+      85%  { color: #ff00ff; }
+      100% { color: #ff0000; }
+    }
+
+    /* ===== 点滅 ===== */
+    .blink {
+      animation: blink-effect 0.5s step-end infinite;
+    }
+    @keyframes blink-effect {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* ===== ゆっくり点滅 ===== */
+    .blink-slow {
+      animation: blink-effect 1.2s step-end infinite;
+    }
+
+    /* ===== ネオン ===== */
+    .neon-pink {
+      color: #ff00ff;
+      text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 25px #ff00ff, 0 0 50px #ff00ff;
+    }
+    .neon-cyan {
+      color: #00ffff;
+      text-shadow: 0 0 5px #fff, 0 0 10px #00ffff, 0 0 25px #00ffff, 0 0 50px #0088ff;
+    }
+    .neon-green {
+      color: #00ff44;
+      text-shadow: 0 0 5px #fff, 0 0 10px #00ff44, 0 0 25px #00ff44, 0 0 50px #00ff00;
+    }
+    .neon-yellow {
+      color: #ffff00;
+      text-shadow: 0 0 5px #fff, 0 0 10px #ffff00, 0 0 25px #ffff00, 0 0 50px #ff8800;
+    }
+
+    /* ===== ヘッダー ===== */
+    header {
+      background: linear-gradient(90deg, #ff0000, #ff7700, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+      background-size: 400% 100%;
+      animation: header-slide 3s linear infinite;
+      padding: 6px 0;
+      text-align: center;
+      border-bottom: 4px solid #ffff00;
+    }
+    @keyframes header-slide {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 400% 50%; }
+    }
+    header p {
+      margin: 0;
+      font-size: 13px;
+      font-weight: bold;
+      color: #000;
+      letter-spacing: 2px;
+    }
+
+    /* ===== ヒーローセクション ===== */
+    .hero {
+      text-align: center;
+      padding: 40px 20px 30px;
+      background: radial-gradient(ellipse at center, #1a003a 0%, #000011 70%);
+      border-bottom: 3px dashed #ff00ff;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 7vw, 72px);
+      letter-spacing: 4px;
+      margin: 0 0 10px;
+      animation: title-pulse 2s ease-in-out infinite;
+    }
+    @keyframes title-pulse {
+      0%, 100% { transform: scale(1);   text-shadow: 0 0 10px #fff, 0 0 30px #ff00ff, 0 0 60px #ff00ff; }
+      50%       { transform: scale(1.04); text-shadow: 0 0 20px #fff, 0 0 50px #00ffff, 0 0 100px #00ffff; }
+    }
+
+    .hero .subtitle {
+      font-size: clamp(14px, 3vw, 22px);
+      margin: 6px 0 20px;
+    }
+
+    /* iPhone SVGイラスト */
+    .iphone-container {
+      display: inline-block;
+      position: relative;
+      animation: phone-float 3s ease-in-out infinite;
+    }
+    @keyframes phone-float {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50%       { transform: translateY(-18px) rotate(2deg); }
+    }
+    .iphone-glow {
+      filter: drop-shadow(0 0 20px #00ffff) drop-shadow(0 0 40px #ff00ff);
+      animation: glow-pulse 2s ease-in-out infinite;
+    }
+    @keyframes glow-pulse {
+      0%, 100% { filter: drop-shadow(0 0 20px #00ffff) drop-shadow(0 0 40px #ff00ff); }
+      50%       { filter: drop-shadow(0 0 40px #ff00ff) drop-shadow(0 0 60px #ffff00); }
+    }
+
+    /* ===== マーキー ===== */
+    .marquee-wrap {
+      background: #000;
+      border-top: 3px solid #ff00ff;
+      border-bottom: 3px solid #ff00ff;
+      padding: 8px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-inner {
+      display: inline-block;
+      animation: marquee-scroll 18s linear infinite;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    @keyframes marquee-scroll {
+      0%   { transform: translateX(100vw); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ===== セクション共通 ===== */
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+
+    .section-title {
+      font-size: clamp(20px, 5vw, 36px);
+      text-align: center;
+      border: 3px double #ffff00;
+      padding: 10px 20px;
+      margin-bottom: 24px;
+      background: rgba(255,255,0,0.05);
+      letter-spacing: 3px;
+      animation: border-color-shift 2s linear infinite;
+    }
+    @keyframes border-color-shift {
+      0%   { border-color: #ff0000; }
+      25%  { border-color: #00ff00; }
+      50%  { border-color: #0000ff; }
+      75%  { border-color: #ff00ff; }
+      100% { border-color: #ff0000; }
+    }
+
+    /* ===== スペックカード ===== */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .spec-card {
+      border: 2px solid #00ffff;
+      background: rgba(0, 255, 255, 0.05);
+      padding: 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .spec-card:hover {
+      transform: scale(1.06) rotate(1deg);
+      border-color: #ff00ff;
+      background: rgba(255, 0, 255, 0.1);
+    }
+    .spec-card::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255,255,255,0.08) 50%,
+        transparent 70%
+      );
+      animation: card-shine 3s linear infinite;
+    }
+    @keyframes card-shine {
+      0%   { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+    .spec-card .icon {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 8px;
+      animation: icon-spin 4s ease-in-out infinite;
+    }
+    @keyframes icon-spin {
+      0%, 90%, 100% { transform: rotate(0deg) scale(1); }
+      95%            { transform: rotate(360deg) scale(1.3); }
+    }
+    .spec-card .label {
+      font-size: 11px;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .spec-card .value {
+      font-size: clamp(15px, 3vw, 20px);
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    /* ===== 特徴リスト ===== */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .feature-list li {
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      border-left: 6px solid #ff00ff;
+      background: rgba(255, 0, 255, 0.05);
+      font-size: clamp(14px, 2.5vw, 18px);
+      position: relative;
+      animation: feature-slide 0.5s ease both;
+      transition: background 0.2s;
+    }
+    .feature-list li:hover {
+      background: rgba(255, 255, 0, 0.1);
+      border-left-color: #ffff00;
+    }
+    .feature-list li::before {
+      content: "▶ ";
+      color: #ff00ff;
+    }
+
+    /* ===== カラーバリエーション ===== */
+    .color-variants {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 20px 0;
+    }
+    .color-chip {
+      text-align: center;
+      cursor: pointer;
+    }
+    .color-chip .chip-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin: 0 auto 8px;
+      border: 3px solid #fff;
+      animation: chip-spin 6s linear infinite;
+      transition: transform 0.3s;
+    }
+    .color-chip:hover .chip-circle {
+      transform: scale(1.3);
+    }
+    @keyframes chip-spin {
+      0%   { box-shadow: 0 0 0 4px transparent; }
+      50%  { box-shadow: 0 0 20px 8px rgba(255,255,255,0.4); }
+      100% { box-shadow: 0 0 0 4px transparent; }
+    }
+    .space-gray  { background: radial-gradient(circle at 35% 35%, #8a8a8a, #3c3c3c, #111); }
+    .silver      { background: radial-gradient(circle at 35% 35%, #ffffff, #d0d0d0, #aaa); }
+    .gold-color  { background: radial-gradient(circle at 35% 35%, #ffe0a0, #d4a857, #b08020); }
+
+    /* ===== アクセスカウンター風 ===== */
+    .counter-box {
+      text-align: center;
+      border: 4px ridge #ff00ff;
+      padding: 16px;
+      background: #000022;
+      margin: 30px auto;
+      max-width: 400px;
+    }
+    .counter-digits {
+      font-family: "Courier New", monospace;
+      font-size: 36px;
+      color: #00ff00;
+      letter-spacing: 6px;
+      text-shadow: 0 0 10px #00ff00;
+      animation: counter-flicker 4s step-end infinite;
+    }
+    @keyframes counter-flicker {
+      0%, 95%, 100% { opacity: 1; }
+      96%            { opacity: 0.4; }
+    }
+
+    /* ===== 工事中マーク ===== */
+    .under-construction {
+      text-align: center;
+      font-size: clamp(13px, 3vw, 20px);
+      padding: 12px;
+      background: repeating-linear-gradient(
+        45deg,
+        #000,      #000 10px,
+        #ffcc00 10px, #ffcc00 20px
+      );
+      color: #000;
+      font-weight: bold;
+      letter-spacing: 2px;
+      animation: construction-blink 1s step-end infinite;
+    }
+    @keyframes construction-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.7; }
+    }
+
+    /* ===== 流れ星（CSS） ===== */
+    .shooting-star {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .shooting-star::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      height: 1px;
+      background: linear-gradient(to left, rgba(255,255,255,0.8), transparent);
+    }
+
+    /* ===== フッター ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 3px solid #ff00ff;
+      background: #000;
+      font-size: 12px;
+      color: #888;
+      margin-top: 40px;
+    }
+    footer .footer-stars {
+      font-size: 20px;
+      animation: rainbow-shift 1s linear infinite;
+    }
+
+    /* ===== 回転テキスト装飾 ===== */
+    .spin-text {
+      display: inline-block;
+      animation: spin-y 4s linear infinite;
+    }
+    @keyframes spin-y {
+      0%   { transform: rotateY(0deg); }
+      50%  { transform: rotateY(180deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    /* ===== 謎のボタン ===== */
+    .retro-btn {
+      display: inline-block;
+      padding: 10px 24px;
+      font-size: 16px;
+      font-family: "Comic Sans MS", cursive;
+      font-weight: bold;
+      background: linear-gradient(180deg, #ffff00 0%, #ff8800 100%);
+      color: #000;
+      border: 3px outset #fff;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 2px;
+      animation: btn-shake 5s ease-in-out infinite;
+      margin: 8px;
+    }
+    .retro-btn:hover {
+      background: linear-gradient(180deg, #ff00ff 0%, #0000ff 100%);
+      color: #fff;
+      border-style: inset;
+    }
+    @keyframes btn-shake {
+      0%, 90%, 100% { transform: rotate(0deg); }
+      92%            { transform: rotate(-3deg); }
+      94%            { transform: rotate(3deg); }
+      96%            { transform: rotate(-3deg); }
+      98%            { transform: rotate(3deg); }
+    }
+
+    /* ===== 画像代替のSVGフォン ===== */
+    .phone-svg {
+      width: clamp(140px, 30vw, 240px);
+      height: auto;
+    }
+
+    /* ===== セクション区切り ===== */
+    .divider {
+      text-align: center;
+      font-size: 20px;
+      margin: 16px 0;
+      animation: rainbow-shift 0.6s linear infinite;
+      letter-spacing: 6px;
+    }
+
+    /* ===== 跳ねる文字 ===== */
+    .bounce-text span {
+      display: inline-block;
+      animation: bounce-char 0.8s ease-in-out infinite;
+    }
+    .bounce-text span:nth-child(2n)   { animation-delay: 0.1s; }
+    .bounce-text span:nth-child(3n)   { animation-delay: 0.2s; }
+    .bounce-text span:nth-child(4n)   { animation-delay: 0.3s; }
+    .bounce-text span:nth-child(5n)   { animation-delay: 0.4s; }
+    @keyframes bounce-char {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    /* ===== 「NEW!」バッジ ===== */
+    .badge-new {
+      background: #ff0000;
+      color: #fff;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+      animation: blink-effect 0.7s step-end infinite;
+      vertical-align: middle;
+    }
+
+    /* ===== テーブルスペック ===== */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(12px, 2vw, 15px);
+    }
+    .spec-table th {
+      background: #ff00ff;
+      color: #000;
+      padding: 8px 12px;
+      text-align: left;
+      letter-spacing: 1px;
+    }
+    .spec-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #333;
+    }
+    .spec-table tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
+    .spec-table tr:hover td { background: rgba(0,255,255,0.08); }
+
+    /* ===== レスポンシブ対応 ===== */
+    @media (max-width: 480px) {
+      .spec-grid { grid-template-columns: 1fr 1fr; }
+      .color-variants { gap: 16px; }
+      .color-chip .chip-circle { width: 50px; height: 50px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== 星空キャンバス ===== -->
+<canvas id="starfield"></canvas>
+
+<div class="content-wrapper">
+
+  <!-- ===== レインボーヘッダーバー ===== -->
+  <header>
+    <p>
+      ★ようこそ！iPhone 5s 最強紹介サイトへ！★ &nbsp;|&nbsp;
+      当サイトは Internet Explorer 6.0 以上推奨 &nbsp;|&nbsp;
+      <span class="blink">★訪問者数：0123456★</span>
+    </p>
+  </header>
+
+  <!-- ===== マーキー ===== -->
+  <div class="marquee-wrap">
+    <div class="marquee-inner rainbow">
+      ★★★ iPhone 5s !!! 64ビットの衝撃！！Touch IDで指紋認証！！！スローモーション動画！！！ゴールドカラー登場！！世界最速スマートフォン(当時)！！A7チップの奇跡！！★★★ &nbsp;&nbsp;&nbsp;
+      ♥ iPhone 5s ♥ iPhone 5s ♥ iPhone 5s ♥ iPhone 5s ♥ iPhone 5s ♥ iPhone 5s ♥ &nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- ===== ヒーロー ===== -->
+  <div class="hero">
+    <div class="divider">✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦</div>
+
+    <h1 class="neon-pink">iPhone 5s</h1>
+
+    <p class="subtitle rainbow">
+      ～ 伝説のスマートフォン 完全解説ページ ～
+    </p>
+
+    <p style="font-size:13px; color:#aaa; margin:0 0 24px;">
+      <span class="blink neon-yellow">【超重要】</span>
+      このページを見た人は必ず幸運が訪れます！！今すぐブックマーク推奨！！
+    </p>
+
+    <!-- iPhone SVGイラスト -->
+    <div class="iphone-container">
+      <div class="iphone-glow">
+        <svg class="phone-svg" viewBox="0 0 200 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- ボディ -->
+          <rect x="20" y="10" width="160" height="360" rx="26" ry="26"
+                fill="#2a2a2a" stroke="#888" stroke-width="2"/>
+          <!-- メタルフレーム -->
+          <rect x="22" y="12" width="156" height="356" rx="24" ry="24"
+                fill="none" stroke="#aaa" stroke-width="1.5"/>
+          <!-- 画面 -->
+          <rect x="30" y="60" width="140" height="245" rx="4" ry="4"
+                fill="#000" stroke="#333" stroke-width="1"/>
+          <!-- 画面グロー -->
+          <rect x="30" y="60" width="140" height="245" rx="4" ry="4"
+                fill="none" stroke="url(#screenGlow)" stroke-width="2"/>
+          <defs>
+            <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00ffff;stop-opacity:0.8"/>
+              <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:0.8"/>
+            </linearGradient>
+            <linearGradient id="iosGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   style="stop-color:#1a1a2e"/>
+              <stop offset="100%" style="stop-color:#16213e"/>
+            </linearGradient>
+          </defs>
+          <!-- iOS7風画面内容 -->
+          <rect x="30" y="60" width="140" height="245" rx="4" fill="url(#iosGrad)"/>
+          <!-- 壁紙の星 -->
+          <circle cx="55"  cy="90"  r="1.5" fill="#fff" opacity="0.8"/>
+          <circle cx="90"  cy="75"  r="1"   fill="#fff" opacity="0.6"/>
+          <circle cx="130" cy="100" r="1.5" fill="#fff" opacity="0.9"/>
+          <circle cx="70"  cy="120" r="1"   fill="#fff" opacity="0.5"/>
+          <circle cx="150" cy="85"  r="1"   fill="#fff" opacity="0.7"/>
+          <circle cx="110" cy="95"  r="2"   fill="#fff" opacity="0.4"/>
+          <!-- ステータスバー -->
+          <rect x="30" y="60" width="140" height="16" fill="rgba(0,0,0,0.4)"/>
+          <text x="38" y="72" font-size="8" fill="#fff" font-family="Arial">9:41 AM</text>
+          <text x="148" y="72" font-size="8" fill="#fff" font-family="Arial" text-anchor="end">●●●</text>
+          <!-- アイコングリッド -->
+          <rect x="38"  y="90"  width="28" height="28" rx="6" fill="#FF3B30"/>
+          <rect x="76"  y="90"  width="28" height="28" rx="6" fill="#FF9500"/>
+          <rect x="114" y="90"  width="28" height="28" rx="6" fill="#FFCC00"/>
+          <rect x="152" y="90"  width="28" height="28" rx="6" fill="#4CD964"/>
+          <rect x="38"  y="128" width="28" height="28" rx="6" fill="#5AC8FA"/>
+          <rect x="76"  y="128" width="28" height="28" rx="6" fill="#007AFF"/>
+          <rect x="114" y="128" width="28" height="28" rx="6" fill="#5856D6"/>
+          <rect x="152" y="128" width="28" height="28" rx="6" fill="#FF2D55"/>
+          <rect x="38"  y="166" width="28" height="28" rx="6" fill="#FF3B30" opacity="0.7"/>
+          <rect x="76"  y="166" width="28" height="28" rx="6" fill="#8E8E93"/>
+          <rect x="114" y="166" width="28" height="28" rx="6" fill="#007AFF" opacity="0.8"/>
+          <rect x="152" y="166" width="28" height="28" rx="6" fill="#FF9500" opacity="0.7"/>
+          <!-- ドック -->
+          <rect x="33"  y="270" width="134" height="32" rx="8" fill="rgba(255,255,255,0.1)"/>
+          <rect x="40"  y="275" width="24" height="24" rx="6" fill="#34C759"/>
+          <rect x="76"  y="275" width="24" height="24" rx="6" fill="#FF3B30"/>
+          <rect x="112" y="275" width="24" height="24" rx="6" fill="#007AFF"/>
+          <rect x="148" y="275" width="24" height="24" rx="6" fill="#5AC8FA"/>
+          <!-- フロントカメラ -->
+          <circle cx="100" cy="38" r="5" fill="#111" stroke="#555" stroke-width="1"/>
+          <circle cx="100" cy="38" r="2" fill="#222"/>
+          <!-- スピーカーグリル -->
+          <rect x="85" y="33" width="30" height="4" rx="2" fill="#333"/>
+          <!-- ホームボタン（Touch IDリング付き） -->
+          <circle cx="100" cy="340" r="16" fill="#1a1a1a" stroke="#888" stroke-width="1.5"/>
+          <circle cx="100" cy="340" r="13" fill="none" stroke="#aaa" stroke-width="1"/>
+          <circle cx="100" cy="340" r="9"  fill="#222"/>
+          <!-- サイドボタン -->
+          <rect x="176" y="110" width="4" height="30" rx="2" fill="#aaa"/>
+          <!-- ボリュームボタン -->
+          <rect x="20" y="110" width="4" height="20" rx="2" fill="#aaa"/>
+          <rect x="20" y="140" width="4" height="20" rx="2" fill="#aaa"/>
+          <!-- ミュートスイッチ -->
+          <rect x="20" y="95" width="4" height="10" rx="2" fill="#aaa"/>
+          <!-- ライトニングポート -->
+          <rect x="88" y="368" width="24" height="4" rx="2" fill="#555"/>
+          <!-- メタルシャイン -->
+          <linearGradient id="bodyShine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   style="stop-color:#fff;stop-opacity:0.1"/>
+            <stop offset="50%"  style="stop-color:#fff;stop-opacity:0.05"/>
+            <stop offset="100%" style="stop-color:#fff;stop-opacity:0.0"/>
+          </linearGradient>
+          <rect x="20" y="10" width="80" height="360" rx="26" fill="url(#bodyShine)"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="divider" style="margin-top:24px;">✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦</div>
+
+    <p style="font-size:clamp(13px,3vw,18px); margin:16px 0 0;">
+      <span class="neon-cyan">2013年9月20日</span> — この日、世界が変わった。
+    </p>
+    <p class="blink neon-yellow" style="font-size:clamp(16px,4vw,26px); margin:8px 0;">
+      ★★★ 史上最強のiPhone、ここに降臨 ★★★
+    </p>
+  </div>
+
+  <!-- ===== マーキー2 ===== -->
+  <div class="marquee-wrap" style="background:#110000; border-color:#ff0000; animation-direction:reverse;">
+    <div class="marquee-inner neon-green" style="animation-duration:22s; animation-direction:reverse;">
+      ■ A7チップ ■ 64ビットアーキテクチャ ■ Touch ID ■ iOS 7 ■ 8MPカメラ ■ スローモーション120fps ■ バーストモード ■ Retina Display ■ M7モーションコプロセッサ ■
+    </div>
+  </div>
+
+  <!-- ===== スペック概要カード ===== -->
+  <section>
+    <h2 class="section-title rainbow">★ 主要スペック ★</h2>
+
+    <div class="spec-grid">
+      <div class="spec-card">
+        <span class="icon">💻</span>
+        <div class="label">チップ</div>
+        <div class="value neon-cyan">Apple A7</div>
+        <div style="font-size:11px; color:#aaa; margin-top:4px;">世界初64ビット<span class="badge-new">NEW</span></div>
+      </div>
+      <div class="spec-card">
+        <span class="icon">📱</span>
+        <div class="label">ディスプレイ</div>
+        <div class="value neon-pink">4インチ</div>
+        <div style="font-size:11px; color:#aaa; margin-top:4px;">Retina 1136×640</div>
+      </div>
+      <div class="spec-card">
+        <span class="icon">📷</span>
+        <div class="label">カメラ</div>
+        <div class="value neon-green">8MP</div>
+        <div style="font-size:11px; color:#aaa; margin-top:4px;">f/2.2 スローモーション対応</div>
+      </div>
+      <div class="spec-card">
+        <span class="icon">☁️</span>
+        <div class="label">ストレージ</div>
+        <div class="value neon-yellow">16/32/64GB</div>
+        <div style="font-size:11px; color:#aaa; margin-top:4px;">3モデル展開</div>
+      </div>
+      <div class="spec-card">
+        <span class="icon">👆</span>
+        <div class="label">生体認証</div>
+        <div class="value neon-pink">Touch ID<span class="badge-new">初</span></div>
+        <div style="font-size:11px; color:#aaa; margin-top:4px;">指紋センサー搭載</div>
+      </div>
+      <div class="spec-card">
+        <span class="icon">🔋</span>
+        <div class="label">バッテリー</div>
+        <div class="value neon-cyan">1560mAh</div>
+        <div style="font-size:11px; color:#aaa; margin-top:4px;">通話10時間</div>
+      </div>
+      <div class="spec-card">
+        <span class="icon">🌐</span>
+        <div class="label">OS</div>
+        <div class="value neon-green">iOS 7</div>
+        <div style="font-size:11px; color:#aaa; margin-top:4px;">フラットデザイン革命</div>
+      </div>
+      <div class="spec-card">
+        <span class="icon">⚡</span>
+        <div class="label">コプロセッサ</div>
+        <div class="value neon-yellow">M7</div>
+        <div style="font-size:11px; color:#aaa; margin-top:4px;">モーション検出専用</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★</div>
+
+  <!-- ===== 特徴 ===== -->
+  <section>
+    <h2 class="section-title neon-pink">☆ 革命的な5つの特徴 ☆</h2>
+    <ul class="feature-list">
+      <li>
+        <span class="neon-cyan">【世界初】64ビットモバイルプロセッサ「A7チップ」</span><br>
+        <small style="color:#aaa;">前モデルのA6比 最大2倍のCPU性能・2倍のグラフィック性能。スマホの概念をぶっ壊した。</small>
+      </li>
+      <li>
+        <span class="neon-pink">【世界初】指紋認証センサー「Touch ID」ホームボタン搭載</span><br>
+        <small style="color:#aaa;">0.5秒以下でロック解除。スマートフォンの「当たり前」を塗り替えた伝説の機能。</small>
+      </li>
+      <li>
+        <span class="neon-green">【本格対応】120fps スローモーション動画撮影</span><br>
+        <small style="color:#aaa;">720p/120fpsで撮影 → 1/4速の映像に変換。スマホで映画品質のスロー映像が撮れる時代へ。</small>
+      </li>
+      <li>
+        <span class="neon-yellow">【搭載】M7モーションコプロセッサ</span><br>
+        <small style="color:#aaa;">加速度・ジャイロ・コンパスのデータを低消費電力で常時収集。フィットネスアプリ革命の起点。</small>
+      </li>
+      <li>
+        <span class="neon-pink">【iOS 7】フラットデザインの新時代へ</span><br>
+        <small style="color:#aaa;">ジョニー・アイブ主導の全面UIリデザイン。リアルテクスチャから透明感・奥行き表現へ。</small>
+      </li>
+    </ul>
+  </section>
+
+  <div class="divider">🌟⭐🌟⭐🌟⭐🌟⭐🌟⭐🌟⭐🌟⭐🌟</div>
+
+  <!-- ===== カラーバリエーション ===== -->
+  <section>
+    <h2 class="section-title neon-cyan">🎨 カラーバリエーション 🎨</h2>
+
+    <div class="color-variants">
+      <div class="color-chip">
+        <div class="chip-circle space-gray"></div>
+        <div class="rainbow">スペースグレイ</div>
+        <div style="font-size:11px; color:#aaa;">クールでかっこいい！</div>
+      </div>
+      <div class="color-chip">
+        <div class="chip-circle silver"></div>
+        <div class="rainbow">シルバー</div>
+        <div style="font-size:11px; color:#aaa;">定番！鉄板！最高！</div>
+      </div>
+      <div class="color-chip">
+        <div class="chip-circle gold-color"></div>
+        <div class="rainbow">ゴールド</div>
+        <div style="font-size:11px; color:#aaa;">
+          <span class="blink">★NEW★</span> 大人気！品薄！
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center; font-size:13px; color:#888;">
+      ※ ゴールドは発売直後に即完売続出。転売ヤーが暗躍した伝説のカラー。
+    </p>
+  </section>
+
+  <div class="divider">━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+
+  <!-- ===== 詳細スペック表 ===== -->
+  <section>
+    <h2 class="section-title neon-green">📋 詳細スペック一覧表 📋</h2>
+
+    <table class="spec-table">
+      <tr>
+        <th colspan="2">🔥 iPhone 5s — 完全スペックシート 🔥</th>
+      </tr>
+      <tr><td>発売日</td><td class="neon-cyan">2013年9月20日</td></tr>
+      <tr><td>プロセッサ</td><td class="neon-pink">Apple A7（64ビット ARMv8）+ M7コプロセッサ</td></tr>
+      <tr><td>ディスプレイ</td><td>4インチ IPS Retina（326ppi / 1136×640px）</td></tr>
+      <tr><td>RAM</td><td>1GB LPDDR3</td></tr>
+      <tr><td>ストレージ</td><td>16GB / 32GB / 64GB</td></tr>
+      <tr><td>リアカメラ</td><td>8MP / f2.2 / OIS / 1.5µmピクセル / 真のトーンフラッシュ</td></tr>
+      <tr><td>動画撮影</td><td>1080p 30fps / <span class="neon-yellow">720p 120fps スローモーション</span></td></tr>
+      <tr><td>フロントカメラ</td><td>1.2MP FaceTime HDカメラ / 720p動画</td></tr>
+      <tr><td>バッテリー</td><td>1560mAh / 通話10時間 / 連続待受250時間</td></tr>
+      <tr><td>生体認証</td><td class="neon-pink">Touch ID（第1世代）ホームボタン指紋センサー</td></tr>
+      <tr><td>LTE対応</td><td>Cat.4 LTE（最大150Mbps）</td></tr>
+      <tr><td>Wi-Fi</td><td>802.11a/b/g/n デュアルバンド</td></tr>
+      <tr><td>Bluetooth</td><td>4.0</td></tr>
+      <tr><td>コネクタ</td><td>Lightning</td></tr>
+      <tr><td>本体サイズ</td><td>123.8 × 58.6 × 7.6mm</td></tr>
+      <tr><td>重量</td><td>112g</td></tr>
+      <tr><td>カラー</td><td>スペースグレイ / シルバー / ゴールド</td></tr>
+      <tr><td>OS（初期）</td><td>iOS 7</td></tr>
+      <tr><td>最終対応OS</td><td>iOS 12.5.7</td></tr>
+      <tr><td>発売時価格（日本）</td><td>16GB：67,800円〜（ソフトバンク・au・ドコモ）</td></tr>
+    </table>
+  </section>
+
+  <!-- ===== アクセスカウンター ===== -->
+  <div class="counter-box">
+    <div style="font-size:12px; color:#aaa; margin-bottom:6px; letter-spacing:2px;">★ 訪問者カウンター ★</div>
+    <div class="counter-digits" id="counter">0000000</div>
+    <div style="font-size:10px; color:#555; margin-top:6px;">あなたは〇〇〇番目の訪問者です！</div>
+  </div>
+
+  <!-- ===== 工事中 ===== -->
+  <div class="under-construction">
+    🚧 &nbsp; このページは鋭意工事中です！！更新をお楽しみに！！ &nbsp; 🚧
+  </div>
+
+  <!-- ===== ボタン類 ===== -->
+  <div style="text-align:center; padding:30px 16px;">
+    <p class="bounce-text" style="font-size:clamp(16px,4vw,28px); margin-bottom:20px;">
+      <span>i</span><span>P</span><span>h</span><span>o</span><span>n</span><span>e</span>
+      <span>&nbsp;</span>
+      <span>5</span><span>s</span>
+      <span>&nbsp;</span>
+      <span>最</span><span>高</span><span>！</span><span>！</span><span>！</span>
+    </p>
+
+    <a class="retro-btn" href="#" onclick="return false;">★ブックマーク追加★</a>
+    <a class="retro-btn" href="#" onclick="return false;">👫友達に教える</a>
+    <a class="retro-btn" href="#" onclick="return false;">📧メール送信</a>
+  </div>
+
+  <div class="divider">♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥</div>
+
+  <!-- ===== 一言コーナー ===== -->
+  <section style="text-align:center; padding-bottom:30px;">
+    <h2 class="section-title neon-yellow">✉ みんなの声 ✉</h2>
+    <div style="border:2px solid #ff00ff; background:rgba(255,0,255,0.05); padding:16px; font-size:clamp(13px,2.5vw,17px); line-height:2;">
+      <p>「<span class="neon-cyan">Touch IDが便利すぎてもう戻れない</span>」— 山田太郎さん</p>
+      <p>「<span class="neon-green">スローモーション機能が神すぎる。猫を撮りまくってる</span>」— 鈴木花子さん</p>
+      <p>「<span class="neon-pink">ゴールドが欲しくて3件のショップをはしごした</span>」— 田中一郎さん</p>
+      <p>「<span class="neon-yellow">64ビットって何？でもなんかすごそう</span>」— 佐藤まりこさん</p>
+      <p class="blink" style="color:#ff0000; font-weight:bold;">↑ あなたのコメントもお待ちしています！！！</p>
+    </div>
+  </section>
+
+  <!-- ===== フッター ===== -->
+  <footer>
+    <div class="footer-stars">★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★</div>
+    <p style="margin:10px 0 4px;">
+      <span class="rainbow">iPhone 5s 完全紹介ページ</span> — 手作りページへようこそ！
+    </p>
+    <p style="margin:4px 0;">
+      最終更新: <span class="neon-cyan">2013年9月20日</span> &nbsp;|&nbsp;
+      推奨ブラウザ: Netscape Navigator 4.0以上
+    </p>
+    <p style="margin:4px 0; font-size:10px; color:#444;">
+      このサイトに掲載された情報の無断転載を禁じます。
+      Apple、iPhone、Touch IDはApple Inc.の登録商標です。
+    </p>
+    <div class="footer-stars" style="margin-top:8px;">☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆</div>
+  </footer>
+
+</div><!-- /.content-wrapper -->
+
+<!-- ===== JavaScript ===== -->
+<script>
+  // ===== キャンバス星空 =====
+  (function() {
+    var canvas = document.getElementById('starfield');
+    var ctx    = canvas.getContext('2d');
+    var stars  = [];
+    var W, H;
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+
+    // 星を初期化
+    function initStars() {
+      stars = [];
+      for (var i = 0; i < 200; i++) {
+        stars.push({
+          x:     Math.random() * W,
+          y:     Math.random() * H,
+          r:     Math.random() * 1.8 + 0.2,
+          alpha: Math.random(),
+          // 点滅速度
+          speed: Math.random() * 0.015 + 0.005,
+          // 色: 白・シアン・ピンク・黄色でランダム
+          hue:   [0, 60, 180, 300][Math.floor(Math.random() * 4)]
+        });
+      }
+    }
+
+    // 流れ星データ
+    var shooters = [];
+    function addShooter() {
+      shooters.push({
+        x:     Math.random() * W,
+        y:     Math.random() * H * 0.5,
+        vx:    4 + Math.random() * 4,
+        vy:    2 + Math.random() * 2,
+        len:   60 + Math.random() * 80,
+        alpha: 1
+      });
+    }
+
+    // ランダム間隔で流れ星を追加
+    setInterval(addShooter, 1800);
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      // 通常の星
+      for (var i = 0; i < stars.length; i++) {
+        var s = stars[i];
+        s.alpha += s.speed;
+        if (s.alpha > 1 || s.alpha < 0) s.speed = -s.speed;
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'hsla(' + s.hue + ', 80%, 90%, ' + Math.abs(s.alpha) + ')';
+        ctx.fill();
+      }
+
+      // 流れ星
+      for (var j = shooters.length - 1; j >= 0; j--) {
+        var sh = shooters[j];
+        ctx.beginPath();
+        ctx.moveTo(sh.x, sh.y);
+        ctx.lineTo(sh.x - sh.len * (sh.vx / Math.sqrt(sh.vx*sh.vx + sh.vy*sh.vy)),
+                   sh.y - sh.len * (sh.vy / Math.sqrt(sh.vx*sh.vx + sh.vy*sh.vy)));
+        ctx.strokeStyle = 'rgba(255,255,255,' + sh.alpha + ')';
+        ctx.lineWidth   = 1.5;
+        ctx.stroke();
+
+        sh.x     += sh.vx;
+        sh.y     += sh.vy;
+        sh.alpha -= 0.012;
+
+        // 画面外または透明になったら削除
+        if (sh.alpha <= 0 || sh.x > W + sh.len || sh.y > H + sh.len) {
+          shooters.splice(j, 1);
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', function() { resize(); initStars(); });
+    resize();
+    initStars();
+    draw();
+  })();
+
+  // ===== アクセスカウンター（偽） =====
+  (function() {
+    // 「それっぽい」ランダムな大きな数字を表示
+    var base = 1234567 + Math.floor(Math.random() * 9999);
+    var el   = document.getElementById('counter');
+    el.textContent = String(base).padStart(7, '0');
+  })();
+
+  // ===== マウスカーソル追尾キラキラ =====
+  (function() {
+    var sparkles = [];
+    document.addEventListener('mousemove', function(e) {
+      createSparkle(e.clientX, e.clientY);
+    });
+
+    function createSparkle(x, y) {
+      var el = document.createElement('div');
+      var symbols = ['★','☆','♥','♦','✦','✧','⭐','💫'];
+      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.cssText = [
+        'position:fixed',
+        'left:' + (x - 8) + 'px',
+        'top:'  + (y - 8) + 'px',
+        'font-size:' + (10 + Math.random() * 12) + 'px',
+        'pointer-events:none',
+        'z-index:9999',
+        'color:hsl(' + Math.floor(Math.random()*360) + ',100%,70%)',
+        'transition:all 0.8s ease',
+        'opacity:1'
+      ].join(';');
+      document.body.appendChild(el);
+
+      // 少し経ったら上に飛ばして消す
+      setTimeout(function() {
+        el.style.transform   = 'translateY(-40px) scale(0)';
+        el.style.opacity     = '0';
+      }, 50);
+      setTimeout(function() {
+        if (el.parentNode) el.parentNode.removeChild(el);
+      }, 900);
+    }
+  })();
+</script>
+
+</body>
+</html>
